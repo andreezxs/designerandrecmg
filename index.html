@@ -130,7 +130,6 @@
         .btn:hover { transform: scale(1.03); }
         .btn-light { background: var(--offwhite); color: var(--black); }
         .btn-ghost { color: var(--offwhite); background: rgba(255,255,255,.08); }
-        .btn-wide { width: 100%; }
 
         .kicker {
             font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase;
@@ -160,27 +159,6 @@
         .ico-g { background: rgba(171,224,84,.14); color: var(--green); }
         .ico-o { background: rgba(250,85,60,.14); color: var(--orange); }
         .ico-m { background: rgba(191,90,242,.14); color: #d9a4ff; }
-
-        .ebook { display: grid; gap: 28px; align-items: center; }
-        .cover-wrap {
-            display: flex; justify-content: center;
-            perspective: 1200px;
-        }
-        .cover {
-            width: min(280px, 72vw);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 30px 70px -24px rgba(0,0,0,.75);
-            transform: rotateY(-6deg) rotateX(2deg);
-            transition: transform .5s var(--apple);
-        }
-        .cover:hover { transform: rotateY(0) rotateX(0) translateY(-6px); }
-        .cover img { width: 100%; height: auto; display: block; }
-        .ebook p { color: var(--dim); margin-bottom: 14px; }
-        .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 6px 0 20px; color: var(--faint); font-size: 13px; font-weight: 600; }
-        .meta span { display: inline-flex; align-items: center; gap: 6px; }
-        .meta i { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); display: inline-block; }
-        .note { font-size: 13px; color: var(--faint); margin-top: 12px; }
 
         .projects { display: grid; gap: 10px; margin-top: 36px; }
         .project {
@@ -227,12 +205,7 @@
             .projects { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .projects .project:first-child { grid-column: 1 / -1; }
             .projects .project:first-child img { height: 380px; }
-            .ebook { grid-template-columns: 280px 1fr; gap: 40px; }
-            .cover { width: 260px; }
-            .btn-wide { width: auto; }
             h1 { overflow-wrap: normal; }
-            .actions { justify-content: flex-start; }
-            .hero .actions { justify-content: center; }
         }
         @media (min-width: 900px) {
             .nav-links, .nav-cta { display: flex; }
@@ -245,8 +218,6 @@
             footer { padding-bottom: 48px; }
             .foot { flex-direction: row; justify-content: space-between; align-items: end; }
             section { padding: 104px 0; }
-            .ebook { grid-template-columns: 300px 1fr; gap: 56px; }
-            .cover { width: 300px; }
         }
         @media (prefers-reduced-motion: reduce) {
             * { animation: none !important; transition: none !important; }
@@ -265,7 +236,7 @@
         <a class="brand" href="#hero"><span class="orange">@</span>designerandrecmg</a>
         <div class="nav-links">
             <a href="#sobre">Sobre</a>
-            <a href="#ebook">eBook</a>
+            <a href="#servicos">Serviços</a>
             <a href="#portfolio">Projetos</a>
             <a href="#contato">Contato</a>
         </div>
@@ -278,7 +249,6 @@
     <div class="drawer bar" id="drawer">
         <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
-        <a href="#ebook">eBook pago</a>
         <a href="#portfolio">Projetos</a>
         <a href="#contato">Contato</a>
     </div>
@@ -291,7 +261,7 @@
                 <p class="lead">Design de verdade: <span class="green">criativo</span>, <span class="orange">funcional</span> e com sua <span class="green">cara</span></p>
                 <div class="actions">
                     <a class="btn btn-light" href="#portfolio">Ver portfólio</a>
-                    <a class="btn btn-ghost" href="#ebook">Comprar eBook</a>
+                    <a class="btn btn-ghost" href="#contato">Contato</a>
                 </div>
             </div>
         </section>
@@ -344,32 +314,6 @@
             </div>
         </section>
 
-        <section id="ebook">
-            <div class="wrap ebook">
-                <div class="cover-wrap">
-                    <a class="cover" href="https://trocultas-one.vercel.app/" target="_blank" rel="noopener">
-                        <img src="png/tramas-ocultas-capa.svg" alt="Capa do eBook Tramas Ocultas: Vozes da Vida">
-                    </a>
-                </div>
-                <div>
-                    <p class="kicker">Produto digital · pago</p>
-                    <h2>Tramas Ocultas<br><span style="color:rgba(245,242,234,.82);font-weight:600;">Vozes da Vida</span></h2>
-                    <p>Um eBook pago — não é conteúdo gratuito. Obra completa, com acesso mediante compra.</p>
-                    <p>68 capítulos escritos a partir de palavras e temas. Cada termo simples virou história, interpretação e reflexão. Aqui ele deixa de ser PDF e passa a ser experiência.</p>
-                    <div class="meta">
-                        <span><i></i> Acesso pago</span>
-                        <span><i style="background:var(--green)"></i> 68 capítulos</span>
-                        <span><i style="background:#BF5AF2"></i> Leitura contínua</span>
-                    </div>
-                    <div class="actions">
-                        <a class="btn btn-light btn-wide" href="https://trocultas-one.vercel.app/" target="_blank" rel="noopener">Comprar o eBook</a>
-                        <a class="btn btn-ghost" href="https://trocultas-one.vercel.app/" target="_blank" rel="noopener">Ver a obra</a>
-                    </div>
-                    <p class="note">A compra libera o acesso à leitura digital completa.</p>
-                </div>
-            </div>
-        </section>
-
         <section id="portfolio">
             <div class="wrap">
                 <div class="center">
@@ -414,12 +358,12 @@
                 <div class="contact">
                     <p class="kicker">Contato</p>
                     <h2>Vamos criar algo incrível juntos</h2>
-                    <p class="sub" style="margin:0 auto 24px;">Orçamento de design ou dúvidas sobre o eBook pago.</p>
+                    <p class="sub" style="margin:0 auto 24px;">Entre em contato para discutir seu projeto.</p>
                     <a class="btn btn-light" href="https://api.whatsapp.com/send?phone=5544991710966&text=Oi%20Andr%C3%A9%20|%20@designerandrecmg!Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20um%20projeto%20de%20design.%20Pode%20me%20orientar?" target="_blank" rel="noopener">Falar no WhatsApp</a>
                     <div class="socials">
                         <a href="https://www.behance.net/designerandrecmg" target="_blank" rel="noopener">Behance</a>
                         <a href="https://instagram.com/designerandrecmg" target="_blank" rel="noopener">Instagram</a>
-                        <a href="https://trocultas-one.vercel.app/" target="_blank" rel="noopener">eBook</a>
+                        <a href="https://www.karde.me/designerandrecmg" target="_blank" rel="noopener">Link</a>
                     </div>
                 </div>
             </div>
@@ -431,11 +375,11 @@
             <div class="foot">
                 <div>
                     <strong><span class="orange">@</span><span class="green">designerandrecmg</span></strong>
-                    <p class="copy" style="margin-top:6px;">Tramas Ocultas é um eBook pago · 2026</p>
+                    <p class="copy" style="margin-top:6px;">Design de verdade: criativo, funcional e com sua cara · 2026</p>
                 </div>
                 <div class="links">
                     <a href="#hero">Início</a>
-                    <a href="#ebook">Comprar eBook</a>
+                    <a href="#sobre">Sobre</a>
                     <a href="#portfolio">Portfólio</a>
                     <a href="#contato">Contato</a>
                 </div>
@@ -448,9 +392,9 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
             Início
         </a>
-        <a href="#ebook" data-id="ebook">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-            eBook
+        <a href="#sobre" data-id="sobre">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Sobre
         </a>
         <a href="#portfolio" data-id="portfolio">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
@@ -478,7 +422,7 @@
                 });
             });
 
-            var ids = ["hero", "sobre", "servicos", "ebook", "portfolio", "contato"];
+            var ids = ["hero", "sobre", "servicos", "portfolio", "contato"];
             var dock = document.querySelectorAll(".dock a");
             function mark() {
                 var cur = "hero";
@@ -488,7 +432,7 @@
                 });
                 dock.forEach(function (link) {
                     var on = link.dataset.id === cur;
-                    if (cur === "sobre" || cur === "servicos") on = link.dataset.id === "hero";
+                    if (cur === "servicos") on = link.dataset.id === "sobre";
                     link.classList.toggle("active", on);
                 });
             }
