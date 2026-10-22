@@ -162,21 +162,64 @@
         .ico-o { background: rgba(250,85,60,.14); color: var(--orange); }
         .ico-m { background: rgba(191,90,242,.14); color: #d9a4ff; }
 
-        .projects { display: grid; gap: 10px; margin-top: 36px; }
+        .projects { display: grid; gap: 22px; margin-top: 36px; }
         .project {
-            position: relative; overflow: hidden; border-radius: 20px; min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 24px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            overflow: hidden;
+            transition: transform .35s var(--apple), border-color .25s, background .25s;
         }
-        .project img { width: 100%; height: 280px; object-fit: cover; transition: transform .7s var(--apple); }
-        .project:hover img { transform: scale(1.06); }
-        .overlay {
-            position: absolute; inset: 0;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            padding: 22px;
-            background: linear-gradient(180deg, transparent 35%, rgba(5,5,6,.78) 100%);
+        .project:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,.06);
+            border-color: rgba(255,255,255,.16);
         }
-        .overlay h3 { font-size: 1.15rem; margin-bottom: 4px; }
-        .overlay p { font-size: .9rem; color: var(--dim); margin-bottom: 12px; }
-        .mini { font-size: 13px; font-weight: 600; color: var(--offwhite); opacity: .9; }
+        .project-media {
+            position: relative;
+            overflow: hidden;
+            line-height: 0;
+            background: transparent;
+        }
+        .project-media img {
+            width: 100%;
+            height: auto;
+            max-width: none;
+            display: block;
+            object-fit: contain;
+        }
+        .project-info {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 16px 18px 18px;
+        }
+        .project-info h3 {
+            font-size: 1.02rem;
+            letter-spacing: -.02em;
+            line-height: 1.25;
+            margin-bottom: 4px;
+        }
+        .project-info p {
+            font-size: .86rem;
+            color: var(--dim);
+            line-height: 1.4;
+        }
+        .project-go {
+            flex-shrink: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,.08);
+            color: var(--offwhite);
+            margin-top: 2px;
+        }
+        .project:hover .project-go { background: var(--offwhite); color: var(--black); }
 
         .contact { text-align: center; max-width: 560px; margin: 0 auto; }
         .socials { display: flex; justify-content: center; gap: 18px; margin-top: 24px; }
@@ -204,18 +247,14 @@
 
         @media (min-width: 640px) {
             .cards { grid-template-columns: repeat(3, 1fr); gap: 32px; }
-            .projects { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .projects .project:first-child { grid-column: 1 / -1; }
-            .projects .project:first-child img { height: 380px; }
+            .projects { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             h1 { overflow-wrap: normal; }
         }
         @media (min-width: 900px) {
             .nav-links, .nav-cta { display: flex; }
             .menu-btn, .dock, .drawer { display: none !important; }
             .about { grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: center; }
-            .projects { grid-template-columns: repeat(3, 1fr); }
-            .projects .project:first-child { grid-column: auto; }
-            .projects .project:first-child img, .project img { height: 340px; }
+            .projects { grid-template-columns: repeat(3, 1fr); gap: 22px; }
             .portrait { max-width: none; }
             footer { padding-bottom: 48px; }
             .foot { flex-direction: row; justify-content: space-between; align-items: end; }
@@ -325,27 +364,45 @@
                 </div>
                 <div class="projects">
                     <a class="project" href="https://noticias.maringa.com/26194/conheca-a-tecnogreen-media-plataforma-desenvolvida-por-estudantes-do-colegio-gastao-vidigal" target="_blank" rel="noopener">
-                        <img src="png/tecnogreen-media.png" alt="Tecnogreen Media">
-                        <div class="overlay">
-                            <h3>Tecnogreen Media</h3>
-                            <p class="green">Startup</p>
-                            <span class="mini">Ver projeto</span>
+                        <div class="project-media">
+                            <img src="png/tecnogreen-media.png" alt="Tecnogreen Media">
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Tecnogreen Media</h3>
+                                <p>Startup · Identidade e campanha</p>
+                            </div>
+                            <span class="project-go" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                            </span>
                         </div>
                     </a>
                     <a class="project" href="https://andreluissantosdecamargo.github.io/VisEdu-WEBSITE/" target="_blank" rel="noopener">
-                        <img src="png/Visedu.png" alt="Visedu">
-                        <div class="overlay">
-                            <h3>Visedu</h3>
-                            <p class="orange">Visão computacional na educação</p>
-                            <span class="mini">Ver projeto</span>
+                        <div class="project-media">
+                            <img src="png/Visedu.png" alt="Visedu">
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Visedu</h3>
+                                <p>Visão computacional na educação</p>
+                            </div>
+                            <span class="project-go" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                            </span>
                         </div>
                     </a>
                     <a class="project" href="https://www.behance.net/gallery/232874879/Rebranding-Filhos-de-Abraao" target="_blank" rel="noopener">
-                        <img src="png/gofilhosdeabraao.png" alt="Rebranding Filhos de Abraão">
-                        <div class="overlay">
-                            <h3>Identidade Visual</h3>
-                            <p class="green">Rebranding — Filhos de Abraão</p>
-                            <span class="mini">Ver projeto</span>
+                        <div class="project-media">
+                            <img src="png/gofilhosdeabraao.png" alt="Rebranding Filhos de Abraão">
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <h3>Filhos de Abraão</h3>
+                                <p>Rebranding · Identidade visual</p>
+                            </div>
+                            <span class="project-go" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+                            </span>
                         </div>
                     </a>
                 </div>
