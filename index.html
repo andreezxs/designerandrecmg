@@ -26,6 +26,11 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
+        html, body {
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
         body {
             background: var(--black);
             color: var(--offwhite);
@@ -34,7 +39,13 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-        img { max-width: 100%; display: block; }
+        img {
+            max-width: 100%;
+            display: block;
+            -webkit-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
         a { color: inherit; text-decoration: none; }
         button { font: inherit; background: none; border: 0; color: inherit; cursor: pointer; }
 
@@ -496,6 +507,21 @@
             }
             window.addEventListener("scroll", mark, { passive: true });
             mark();
+
+            document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+            document.addEventListener("copy", function (e) { e.preventDefault(); });
+            document.addEventListener("cut", function (e) { e.preventDefault(); });
+            document.addEventListener("paste", function (e) { e.preventDefault(); });
+            document.addEventListener("selectstart", function (e) { e.preventDefault(); });
+            document.addEventListener("dragstart", function (e) { e.preventDefault(); });
+            document.addEventListener("keydown", function (e) {
+                var k = e.key.toLowerCase();
+                var block = e.key === "F12" || e.key === "PrintScreen" ||
+                    (e.ctrlKey && ["c", "x", "a", "s", "u", "p"].indexOf(k) !== -1) ||
+                    (e.ctrlKey && e.shiftKey && ["i", "j", "c"].indexOf(k) !== -1) ||
+                    (e.metaKey && ["c", "x", "a", "s", "u", "p"].indexOf(k) !== -1);
+                if (block) e.preventDefault();
+            });
         })();
     </script>
 </body>
